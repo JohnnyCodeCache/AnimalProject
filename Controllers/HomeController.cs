@@ -20,7 +20,10 @@ namespace Animals1.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //return View();
+
+            return Redirect("/Animals/index.html");
+            //return File("/Animals/index.html", "text/html");
         }
 
         public IActionResult Privacy()

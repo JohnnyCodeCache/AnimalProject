@@ -1,0 +1,340 @@
+﻿body {
+    background-color: #deebff;
+}
+
+.hidden {
+    display: none;
+}
+
+.Main {
+    margin-top: 1rem
+}
+
+.Icon100 {
+    width: 100px;
+}
+
+.Icon {
+    width: 100%;
+    max-width: 100px;
+}
+
+.SearchBar {
+    width: 100%;
+    min-height: 3rem;
+    border-left: 8px solid white;
+    padding: 1rem;
+}
+
+.SearchBar input {
+    border: 0;
+    background-color: white;
+    padding: .4rem;
+    padding-left: .8rem;
+    width: 250px;
+}
+
+.SearchBar__Search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.SearchBar__Search__SearchBlock {
+    background-color: white;
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 300px;
+}
+
+.SearchBar__Icon {
+    opacity: .3;
+}
+
+.SearchBar__Nav {
+    font-size: 2rem;
+        display: flex;
+    justify-content: flex-start;
+}
+
+.SearchBar__Nav div {
+    padding-right: .4rem;
+}
+
+.--separator{
+    text-align: center;
+    padding-left: 2rem;
+    padding-right: 2rem !important;
+}
+
+.Content {
+    border-top: 1px solid #acacac;
+    border-right: 1px solid #acacac;
+    border-bottom: 1px solid #acacac;
+    border-left: 1px solid #acacac;
+
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+
+
+}
+
+.TabNav {
+    width: 100%;
+    border-left: 6px solid #000000;
+    border-top: 1px solid #acacac;
+    border-bottom: 1px solid #acacac;
+    border-right: 1px solid #FFFFFF;
+
+    padding-bottom: .5rem;
+
+    margin-top: .2rem;
+    margin-bottom: .8rem;
+    text-align: center;
+    background-color: #acacac;
+
+    position: relative;
+    left: 30px;
+    z-index: 1;
+}
+
+.TabNav:hover {
+    position: relative;
+    left: 15px !important;
+
+    background-color: #d4d4d4 !important;
+}
+
+.TabNav p {
+    margin-top: .2rem;
+    margin-bottom: .5rem;
+}
+
+
+.TabNav__DomesticWild {
+    margin-top: 1rem;
+    border-radius: .5rem;
+    font-size: .8rem;
+}
+
+.--domestic {
+    background-color: #fffddb;
+}
+
+.--wild{
+    background-color: #cb6358;
+    color: white;
+}
+
+/* <!-- Bears Cats Dogs Elephants Monkeys  --> */
+
+.--Line__Bears {
+    border-left-color:  #af8250;
+}
+
+.--Line__Cats {
+    border-left-color:  #f79b14;
+}
+
+.--Line__Dogs {
+    border-left-color:  #b3cad7;
+}
+
+.--Line__Elephants {
+    border-left-color:  #b54942;
+}
+
+.--Line__Monkeys {
+    border-left-color:  #f4d4c4;
+}
+
+.--active {
+    background-color: white;
+    position: relative;
+    left: 2px;
+    z-index: 20;
+
+    /*box-shadow: 0 4px 2px -2px rgba(0,0,0,.15);*/
+}
+
+.--active:hover {
+    left: 2px !important;
+    background-color: white !important;
+ }
+
+.Img100 {
+    width: 100%;
+}
+
+.Content__Row {
+    padding: 1rem;
+    position: relative;
+}
+
+.Content__MapContainer {
+    position: relative;
+    height: 100%;
+}
+
+.Content__Map {
+    position: absolute;
+}
+
+.--world {
+    z-index: 1;
+}
+
+.--highlight {
+    z-index: 10;
+}
+
+.Content__Title {
+    font-family: 'Paytone One', sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: .8rem;
+        line-height: 1.2rem;
+}
+
+.Content__Location {
+    font-size: 1rem;
+    line-height: .9rem;
+}
+
+.Content__Text {
+    text-align: left;
+}
+
+.Content__MapContainerBlock {
+    height: 20vh;
+}
+
+
+.GoBackButton {
+    border: 0px;
+    height: 4rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    font-size: .8rem;
+
+    width: 100%;
+    line-height: .8rem;
+
+    background-color: #e3e0a3;
+    font-family: 'Paytone One', sans-serif;
+
+    -webkit-box-shadow: 5px 5px 9px 3px rgba(0,0,0,0.2); 
+    box-shadow: 5px 5px 9px 3px rgba(0,0,0,0.2);
+}
+
+.GoBackButton:hover {
+    background-color: #f0e65b;
+}
+
+.--buttonRow{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+ 
+ 
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+     .Content__Title {
+        font-size: 1.5rem;
+        margin-bottom: .8rem;
+        line-height: 1.2rem;
+    }
+
+    .Content__Location {
+        font-size: 1rem;
+    }
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+    .Content__Title {
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
+        line-height: 1.7rem;
+    }
+
+    .Content__Location {
+        font-size: 1rem;
+    }
+
+    .--topContentRowLeft {
+        min-height: 140px;
+    }
+
+    .GoBackButton {
+        border: 0px;
+        height: 4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1.6rem;
+
+        width: 90%;
+        line-height: .8rem;
+    }
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+     .Content__Title {
+        font-size: 2rem;
+        line-height: 2.2rem;
+    }
+
+    .Content__Location {
+        font-size: 1rem;
+    }
+
+    .--topContentRowLeft {
+        min-height: 200px;
+    }
+
+        .GoBackButton {
+        border: 0px;
+        height: 4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1.6rem;
+
+        width: 50%;
+        line-height: .8rem;
+    }
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .Content__Title {
+        font-size: 2.5rem;
+    }
+
+    .Content__Location {
+        font-size: 1.5rem;
+    }
+
+    .--topContentRowLeft {
+        min-height: 240px;
+    }
+
+    .GoBackButton {
+        border: 0px;
+        height: 4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 1.6rem;
+
+        width: 50%;
+        line-height: .8rem;
+    }
+}
