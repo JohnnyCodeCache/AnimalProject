@@ -1,0 +1,2 @@
+﻿Search needs to reset Left Nav, change color and text in top navbar
+

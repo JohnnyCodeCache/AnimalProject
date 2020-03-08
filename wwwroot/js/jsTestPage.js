@@ -186,7 +186,7 @@ function InsertBatch(animal) {
 
             batchArr = []; 
             for (let i = 0; i < currentAnimalList.length; i++) {
-                //if (currentAnimalList[i].id > 6 && currentAnimalList[i].id < 11) {
+                //if (currentAnimalList[i].id > 3 && currentAnimalList[i].id < 15) {
                     let tempItem = {}; 
                     tempItem.species = currentAnimalList[i].species; 
                     tempItem.name = currentAnimalList[i].name; 

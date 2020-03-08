@@ -13,8 +13,14 @@ namespace Animals1.Services
 
         public AnimalService(IAnimalDatabaseSettings settings)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
+            // local dev
+            //var client = new MongoClient(settings.ConnectionString);
+            //var database = client.GetDatabase(settings.DatabaseName);
+
+            // prod
+            var client = new MongoClient("mongodb+srv://dbMongoGuy:JqTZzfqG2zYaIjtk@anicluster1-efpmh.azure.mongodb.net/test?retryWrites=true&w=majority");
+            var database = client.GetDatabase("AnimalDbPROD");
+
 
             _animals = database.GetCollection<Animal>(settings.AnimalCollectionName);
         }
