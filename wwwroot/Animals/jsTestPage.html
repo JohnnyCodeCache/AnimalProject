@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        .InputBlock {
+            margin-bottom: 1rem;
+        }
+
+        #DataDump {
+            margin-top: 50px;
+            width: 500px;
+            min-height: 300px;
+            border: 2px dotted blue;
+        }
+
+        #Main {
+            display: flex;
+        }
+
+        .Columns {
+            margin-right: 40px;
+        }
+
+        .width300 {
+            width: 300px;
+        }
+
+        .BlueLine {
+            border-left: 3px solid blue;
+            border-top: 3px solid blue;
+            width: 100%;
+            height: 8px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .Headlines {
+            font-size: 2rem;
+            color: blue;
+        }
+
+        Button {
+            border: 0;
+            padding: 1.4rem;
+            background-color: deepskyblue;
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <div id="Main">
+
+        <div class="Columns">
+
+            <h1>Tests</h1>
+
+            <div class="BlueLine"></div>
+            <div class="Headlines">
+                Get All Items (all animals)
+            </div>
+            <p>This tests getAllItems(), which essentially gets all items in the Animal Database.  JSON is put in the box to the right.</p>
+
+            <button class="TestButton" onclick="GetStuff2()">Get All Items</button>
+
+            <div class="BlueLine"></div>
+            <div class="Headlines">
+                Add Item
+            </div>
+            <p></p>
+
+            <div class="InputBlock">
+                <div>species</div>
+                <input type="text" name="" id="species__add" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>name</div>
+                <input type="text" name="" id="name__add" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>location</div>
+                <input type="text" name="" id="location__add" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>details</div>
+                <input type="text" name="" id="details__add" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>imageUrl</div>
+                <input type="text" name="" id="imageUrl__add" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>type</div>
+                <input type="text" name="" id="type__add" value="" class="width300" />
+            </div>
+
+            <button type="Button" onclick="addItem()">Add Item</button>
+
+
+            <div class="BlueLine"></div>
+            <div class="Headlines">
+                Delete Item
+            </div>
+            <p></p>
+
+            <div class="InputBlock">
+                <div>Delete</div>
+                <input type="text" name="" id="DeleteID" value="" style="width: 300px;" />
+
+                <button type="button" onclick="deleteItem()">Delete Items</button>
+            </div>
+
+
+
+            <div class="BlueLine"></div>
+            <div class="Headlines">
+                Update Item
+            </div>
+            <p></p>
+            <div class="InputBlock">
+                <div>id</div>
+                <input type="text" name="" id="id__update" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>species</div>
+                <input type="text" name="" id="species__update" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>name</div>
+                <input type="text" name="" id="name__update" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>location</div>
+                <input type="text" name="" id="location__update" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>details</div>
+                <input type="text" name="" id="details__update" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>imageUrl</div>
+                <input type="text" name="" id="imageUrl__update" value="" class="width300" />
+            </div>
+
+            <div class="InputBlock">
+                <div>type</div>
+                <input type="text" name="" id="type__update" value="" class="width300" />
+            </div>
+
+            <button type="Button" onclick="updateItem()">Update Item</button>
+
+
+
+        </div>
+
+        <div>
+            <div id="DataDump"></div>
+        </div>
+
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/crudFunctions.js"></script>
+    <script src="/js/jsTestPage.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animals!</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="/css/Animals.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="display: none;">
+        This is a proof of concept App to test .NET Core, MongoDB, and Angular. Oh, and a fun way to learn about animals. :)
+    </div>
+
+    <div style="display: none;">
+        <div class="d-none d-xl-block bg-primary">XL - Extra Large</div>
+        <div class="d-none d-lg-block d-xl-none bg-success">LG - Large</div>
+        <div class="d-none d-md-block d-lg-none bg-info">MD - Medium</div>
+        <div class="d-none d-sm-block d-md-none bg-danger">SM - Small</div>
+        <div class="d-block d-sm-none bg-secondary">XS - Extra Small</div>
+    </div>
+
+    @RenderBody()
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+
+
+</body>
+</html>

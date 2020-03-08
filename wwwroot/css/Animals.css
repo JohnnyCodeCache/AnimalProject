@@ -6,6 +6,10 @@
     display: none;
 }
 
+button:focus {
+    outline: none;
+}
+
 .Main {
     margin-top: 1rem
 }
@@ -19,11 +23,16 @@
     max-width: 100px;
 }
 
+.Icon__Small {
+    width: 50px;
+}
+
 .SearchBar {
     width: 100%;
     min-height: 3rem;
     border-left: 8px solid white;
     padding: 1rem;
+    background-color: #acacac;
 }
 
 .SearchBar input {
@@ -52,7 +61,7 @@
 
 .SearchBar__Nav {
     font-size: 2rem;
-        display: flex;
+    display: flex;
     justify-content: flex-start;
 }
 
@@ -60,7 +69,7 @@
     padding-right: .4rem;
 }
 
-.--separator{
+#SearchBar__Nav__Separator {
     text-align: center;
     padding-left: 2rem;
     padding-right: 2rem !important;
@@ -102,6 +111,9 @@
 .TabNav:hover {
     position: relative;
     left: 15px !important;
+    transition: .3s;
+    -webkit-transition:.3s;
+    -moz-transition:.3s;
 
     background-color: #d4d4d4 !important;
 }
@@ -119,7 +131,8 @@
 }
 
 .--domestic {
-    background-color: #fffddb;
+    /*background-color: #58a5cb;*/
+    background-color: #BEE186;
 }
 
 .--wild{
@@ -209,6 +222,11 @@
     height: 20vh;
 }
 
+.Content__Bottom__Image {
+    max-height: 500px;
+    max-width: 100%;
+}
+
 
 .GoBackButton {
     border: 0px;
@@ -236,7 +254,47 @@
     margin-bottom: 2rem;
 }
 
+#AnimalNamesButtonBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
+.AnimalNameButton {
+    background-color: #d1d1d1;
+    border: 5px solid transparent;
+    width: 200px;
+    height: 130px;
+    margin: 1rem;
+}
+
+.AnimalNameButton:hover {
+    background-color: #f2f2f2; 
+}
+
+.--animalButton__Bears:hover {
+    border: 5px solid #af8250;
+}
+.--animalButton__Cats:hover {
+    border: 5px solid #f79b14;
+}
+.--animalButton__Dogs:hover {
+    border: 5px solid #b3cad7;
+}
+.--animalButton__Elephants:hover {
+    border: 5px solid #b54942;
+}
+.--animalButton__Monkeys:hover {
+    border: 5px solid #f4d4c4;
+}
+
+#IntroText {
+    margin-top: 100px;
+    width: 100%;    
+    font-family: 'Paytone One', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
 
 
 /* 
@@ -244,6 +302,9 @@ Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap because it is "mobile first"
 */
  
+    .SearchBar__Search__SearchBlock {
+        display: none !important;
+    }
  
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {  
@@ -255,6 +316,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
     .Content__Location {
         font-size: 1rem;
+    }
+
+    .SearchBar__Search__SearchBlock {
+        display: none !important;
     }
 }
  
@@ -284,6 +349,24 @@ No media query since this is the default in Bootstrap because it is "mobile firs
         width: 90%;
         line-height: .8rem;
     }
+
+        .SearchBar__Search__SearchBlock {
+        display: flex !important;
+    }
+
+.SearchBar__Nav {
+    font-size: 1.4rem;
+}
+
+.SearchBar__Nav div {
+    padding-right: .4rem;
+}
+
+#SearchBar__Nav__Separator {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem !important;
+}
+
 }
  
 /* Large devices (desktops, 992px and up) */
@@ -311,6 +394,21 @@ No media query since this is the default in Bootstrap because it is "mobile firs
         width: 50%;
         line-height: .8rem;
     }
+        .SearchBar__Nav {
+    font-size: 2rem;
+}
+
+.SearchBar__Nav div {
+    padding-right: .4rem;
+}
+
+#SearchBar__Nav__Separator {
+    padding-left: 2rem;
+    padding-right: 2rem !important;
+}
+        .SearchBar__Search__SearchBlock {
+        display: flex !important;
+    }
 }
  
 /* Extra large devices (large desktops, 1200px and up) */
@@ -336,5 +434,22 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
         width: 50%;
         line-height: .8rem;
+    }
+
+.SearchBar__Nav {
+    font-size: 2rem;
+}
+
+.SearchBar__Nav div {
+    padding-right: .4rem;
+}
+
+#SearchBar__Nav__Separator {
+    padding-left: 2rem;
+    padding-right: 2rem !important;
+}
+
+        .SearchBar__Search__SearchBlock {
+        display: flex !important;
     }
 }

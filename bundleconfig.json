@@ -1,0 +1,19 @@
+[
+  {
+    "outputFileName": "wwwroot/css/Animals.min.css",
+    "inputFiles": [
+      "wwwroot/css/Animals.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/Animals.min.js",
+    "inputFiles": [
+      "wwwroot/js/Animals.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

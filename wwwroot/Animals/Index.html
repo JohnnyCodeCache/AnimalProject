@@ -22,46 +22,18 @@
 
         <div class="row">
             <div class="col-3 col-md-2 pr-0">
-                <button type="button" class="TabNav --Line__Bears --active">
-                    <p>Bears</p>
-                    <img src="/images/Icon_Bears.png" class="Icon" />
-                    <div class="TabNav__DomesticWild --wild">Wild</div>
-                </button>
-
-                <button type="button" class="TabNav --Line__Cats">
-                    <p>Cats</p>
-                    <img src="/images/Icon_Cats.png" class="Icon" />
-                    <div class="TabNav__DomesticWild --domestic">Domestic</div>
-                </button>
-
-                <button type="button" class="TabNav --Line__Dogs">
-                    <p>Dogs</p>
-                    <img src="/images/Icon_Dogs.png" class="Icon" />
-                    <div class="TabNav__DomesticWild --domestic">Domestic</div>
-                </button>
-
-                <button type="button" class="TabNav --Line__Elephants">
-                    <p>Elephants</p>
-                    <img src="/images/Icon_Elephants.png" class="Icon" />
-                    <div class="TabNav__DomesticWild --wild">Wild</div>
-                </button>
-
-                <button type="button" class="TabNav --Line__Monkeys">
-                    <p>Monkeys</p>
-                    <img src="/images/Icon_Monkeys.png" class="Icon" />
-                    <div class="TabNav__DomesticWild --wild">Wild</div>
-                </button>
+                <div id="LeftNav"></div>
             </div>
 
             <div class="col-9 col-md-10 Content">
                 <div class="row">
-                    <div class="col-12 SearchBar --wild">
+                    <div id="SearchBarTop" class="col-12 SearchBar">
 
                         <div class="row">
                             <div class="col-6 SearchBar__Nav">
-                                <div>Bears</div>
-                                <div class="--separator">|</div>
-                                <div>Wild</div>
+                                <div id="SearchBar__Nav__Animal"></div>
+                                <div id="SearchBar__Nav__Separator" class="hidden">|</div>
+                                <div id="SearchBar__Nav__DomesticWild"></div>
                             </div>
 
                             <div class="col-6 SearchBar__Search">
@@ -75,39 +47,20 @@
                     </div>
                 </div>
 
-                <div class="row Content__Row">
-                    <div class="col-md-6 text-center py-lg-5 --topContentRowLeft">
-                        <p class="Content__Title">American Black Bear</p>
-                        <p class="Content__Location">Location: North America</p>
+
+                <div id="AnimalContent">
+
+                    <div id="AnimalContent__Top">
+
+                        <div id="IntroText">Learn about Animals!!!</div>
+
                     </div>
-                    <div class="col-md-6 Content__MapContainerBlock">
-                        <div class="Content__MapContainer">
-                            <img src="/images/maps/world.png" class="Img100 Content__Map --world" />
-                            <img src="/images/maps/UnitedStates.png" class="Img100 Content__Map --highlight" />
-                        </div>
-                    </div>
-                </div>
+                    <div id="AnimalContent__Bottom">
+
+                    </div> <!-- AnimalContent__Bottom -->
 
 
-                <div class="row Content__Row">
-                    <div class="col-md-6 text-center">
-                        <p class="Content__Text">The American black bear is a medium-sized bear native to North America. It is the continent's smallest and most widely distributed bear species. American black bears are omnivores, with their diets varying greatly depending on season and location. They typically live in largely forested areas, but do leave forests in search of food. Sometimes they become attracted to human communities because of the immediate availability of food. The American black bear is the world's most common bear species.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/01_Schwarzbär.jpg" class="Img100" />
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row Content__Row --buttonRow">
-                    <div class="col-12 text-center">
-                        <button class="GoBackButton">
-                            <img src="/images/Arrow.png" /> Go Back
-                        </button>
-                    </div>
-                </div>
+                </div> <!-- AnimalContent -->
 
 
             </div>
@@ -115,7 +68,13 @@
     </div>
 
     <br /><br /><br /><br />
+    <div id="DataDump"></div>
+    <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
 
+    <script src="/js/template__ContentBottom.js"></script>
+    <script src="/js/template__ContentTop.js"></script>
+    <script src="/js/template__LeftNav.js"></script>
+    <script src="/js/Animals.js"></script>
 </body>
 </html>

@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "_LayoutAnimalApp";
+
+    ViewData["Title"] = "AnimalApp";
+}
+
+<!-- Bears Cats Dogs Elephants Monkeys  -->
+
+<div class="container Main">
+
+    <div class="row">
+        <div class="col-3 col-md-2 pr-0">
+            <div id="LeftNav"></div>
+        </div>
+
+        <div class="col-9 col-md-10 Content">
+            <div class="row">
+                <div id="SearchBarTop" class="col-12 SearchBar">
+
+                    <div class="row">
+                        <div class="col-6 SearchBar__Nav">
+                            <div id="SearchBar__Nav__Animal"></div>
+                            <div id="SearchBar__Nav__Separator" class="hidden">|</div>
+                            <div id="SearchBar__Nav__DomesticWild"></div>
+                        </div>
+
+                        <div class="col-6 SearchBar__Search">
+                            <div class="SearchBar__Search__SearchBlock d-flex">
+                                <img src="/images/MagnifyingGlass40px.png" class="SearchBar__Icon" />
+                                <input name="search" type="text" placeholder="Search" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="AnimalContent">
+
+                <div id="AnimalContent__Top">
+
+                    <div id="IntroText">Learn about Animals!!!</div>
+
+                </div>
+                <div id="AnimalContent__Bottom">
+
+                </div> <!-- AnimalContent__Bottom -->
+
+
+            </div> <!-- AnimalContent -->
+
+
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<div id="DataDump"></div>
+
+<button onclick="GetAllNormalizedLocations()">Get All Normalized Locations</button>
+
+@section Scripts {
+
+    <script src="~/js/template__ContentBottom.js"  asp-append-version="true"></script>
+    <script src="~/js/template__ContentTop.js" asp-append-version="true"></script>
+    <script src="~/js/template__LeftNav.js" asp-append-version="true"></script>
+    <script src="~/js/Animals.min.js" asp-append-version="true"></script>
+}

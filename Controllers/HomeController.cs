@@ -22,7 +22,7 @@ namespace Animals1.Controllers
         {
             //return View();
 
-            return Redirect("/Animals/index.html");
+            return Redirect("/AnimalApp/");
             //return File("/Animals/index.html", "text/html");
         }
 
