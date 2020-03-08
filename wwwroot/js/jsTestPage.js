@@ -135,6 +135,40 @@ function updateItem() {
     return false;
 }
 
+function ImageCheck() {
+    const uri = '/AnimalData/GetAllDistinctLocationData/';
+
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => {
+            let newArr = [];
+            for (let i = 0; i < data.length; i++) {
+                let thisLoc = data[i].replace(/[^a-zA-Z]/gi, '');
+                newArr.push(thisLoc);
+            }
+            _displayItems(newArr);
+
+            let allIMGOut = "";
+            for (let i = 0; i < newArr.length; i++) {
+                allIMGOut += GetMapTemplate(newArr[i]);
+            }
+
+            $("#MapDump").html(allIMGOut); 
+        })
+        .catch(error => console.error('Unable to get items.', error));
+}
+
+function GetMapTemplate(thisHighlightMap) {
+    let mapTemp = `
+<div class="MapOutter">
+<div class="Content__MapContainer">
+    <img src="/images/maps/world.png" class="Img100 Content__Map --world" />
+    <img id="HighlightMap" src="/images/maps/${thisHighlightMap}.png" class="Img100 Content__Map --highlight" />
+</div>
+</div>
+`;
+    return mapTemp;
+}
 
 
 function _displayItems(data) {

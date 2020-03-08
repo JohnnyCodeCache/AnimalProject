@@ -91,14 +91,13 @@ namespace Animals1.Controllers
                               .Concat(Dogs)
                               .Concat(Elephants)
                               .Concat(Monkeys)
+                              .OrderBy(a => a.Location)
                               .Select(l => l.Location)
                               .ToList()
                               .Distinct();
 
             return Json(result);
         }
-
-
 
     }
 }

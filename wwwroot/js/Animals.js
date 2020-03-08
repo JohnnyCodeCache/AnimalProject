@@ -210,6 +210,23 @@ function GoBack() {
 //
 // library functions
 
+function GetAllNormalizedLocations() {
+    //alert("GetAllNormalizedLocations");
+    const uri = '/AnimalData/GetAllDistinctLocationData/';
+
+        fetch(uri)
+        .then(response => response.json())
+            .then(data => {
+                let newArr = [];
+                for (let i = 0; i < data.length; i++) {
+                    let thisLoc = data[i].replace(/[^a-zA-Z]/gi, '');
+                    newArr.push(thisLoc); 
+                }
+                DataDump(newArr);
+            })
+        .catch(error => console.error('Unable to get items.', error));
+}
+
 function DataDump(data) {
     $("#DataDump").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
 }

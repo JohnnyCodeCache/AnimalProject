@@ -22,12 +22,18 @@
             border: 2px dotted blue;
         }
 
+        #DataDumpBlock {
+            position: fixed; 
+            left: 600px;
+        }
+
         #Main {
             display: flex;
         }
 
         .Columns {
             margin-right: 40px;
+            width: 500px;
         }
 
         .width300 {
@@ -54,13 +60,42 @@
             background-color: deepskyblue;
             font-size: 1.2rem;
         }
+        .Img100 {
+    width: 100%;
+}
+
+.MapOutter {
+    display: block;
+    position: static;
+}
+
+.Content__MapContainer {
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.Content__Map {
+    /*position: absolute;*/
+}
+
+.--world {
+    z-index: 1;
+}
+
+.--highlight {
+    z-index: 10;
+}
+
     </style>
 
     <div id="Main">
 
         <div class="Columns">
 
-            <h1>Tests</h1>
+            <h1>Mongo DB Tests</h1>
+
+            <p>All of these functions interact with the MongoDB</p>
 
             <div class="BlueLine"></div>
             <div class="Headlines">
@@ -68,7 +103,7 @@
             </div>
             <p>This tests getAllItems(), which essentially gets all items in the Animal Database.  JSON is put in the box to the right.</p>
 
-            <button class="TestButton" onclick="GetStuff2()">Get All Items</button>
+            <button class="TestButton" onclick="GetAllItems()">Get All Items</button>
 
             <div class="BlueLine"></div>
             <div class="Headlines">
@@ -167,12 +202,23 @@
             <button type="Button" onclick="updateItem()">Update Item</button>
 
 
+            <div class="BlueLine"></div>
+            <div class="Headlines">
+                Image Check
+            </div>
+            <p>Checks Classes for all unique locations, normalizes them, and displays the images.</p>
+
+            <button type="Button" onclick="ImageCheck()">Image Check</button>
+
+            <div id="MapDump"></div>
 
         </div>
 
-        <div>
+        <div id="DataDumpBlock">
             <div id="DataDump"></div>
         </div>
+
+        
 
     </div>
 
