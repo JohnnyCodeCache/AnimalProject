@@ -146,10 +146,8 @@ function AttachAnimalNameButtons() {
 
         //console.log(normalizedCountry);
 
-        if (normalizedCountry !== 'Extinct') {
-            $("#HighlightMap").removeClass("hidden");
-            $("#HighlightMap").attr("src", "/images/maps/" + normalizedCountry + ".png");
-        }
+        $("#HighlightMap").removeClass("hidden");
+        $("#HighlightMap").attr("src", "/images/maps/" + normalizedCountry + ".png");
     });
 
     $(".AnimalNameButton").mouseleave(function () {
@@ -227,6 +225,15 @@ function Search() {
             setGetParam('id', "");
             setGetParam('name', "");
             setGetParam('search', "thisSearch");
+
+            // adjust TopNav
+            $("#SearchBar__Nav__Animal").html("Search Results");
+            $("#SearchBar__Nav__DomesticWild").html("");
+            $("#SearchBarTop").removeClass("--wild");
+            $("#SearchBarTop").removeClass("--domestic");
+
+            //adjust left nav
+            LeftNav_Update_Data("");
 
             DrawAnimalList(data, "Search Results");
 
