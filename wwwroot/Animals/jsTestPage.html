@@ -20,11 +20,13 @@
             width: 500px;
             min-height: 300px;
             border: 2px dotted blue;
+            /*overflow-y: scroll;
+            position: fixed; 
+            left: 600px;*/
         }
 
         #DataDumpBlock {
-            position: fixed; 
-            left: 600px;
+
         }
 
         #Main {
@@ -211,6 +213,14 @@
             <button type="Button" onclick="ImageCheck()">Image Check</button>
 
             <div id="MapDump"></div>
+
+
+            <div class="BlueLine"></div>
+            <div class="Headlines">
+                Import Cats
+            </div>
+            <p>This imports all cats from the class to the DB</p>
+            <button type="Button" onclick="InsertBatch('Monkeys')">Insert Batch</button>
 
         </div>
 

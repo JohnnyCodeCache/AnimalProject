@@ -44,6 +44,15 @@ namespace Animals1.Controllers
             return CreatedAtRoute("GetAnimal", new { id = animal.Id.ToString() }, animal);
         }
 
+        [HttpPost("/api/animals/createbatch")]
+        public IActionResult CreateBatch(List<Animal> animalList)
+        { 
+            _animalService.InsertBatch(animalList);
+
+            return NoContent();
+        }
+
+
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Animal animalIn)
         {
@@ -59,9 +68,19 @@ namespace Animals1.Controllers
             return NoContent();
         }
 
-        public IActionResult Index()
+        [HttpDelete("{id:length(24)}")]
+        public IActionResult Delete(string id)
         {
-            return View();
+            var animal = _animalService.Get(id);
+
+            if (animal == null)
+            {
+                return NotFound();
+            }
+
+            _animalService.Remove(animal.Id);
+
+            return NoContent();
         }
     }
 }

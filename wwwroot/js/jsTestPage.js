@@ -1,6 +1,8 @@
 ﻿const uri = '/api/Animals';
 let outArr = [];
 
+let currentAnimalList = [];
+
 $(document).ready(function () {
 
     $("#species__add").val("Cat");
@@ -95,7 +97,7 @@ function deleteItem() {
     fetch(fullURI, {
         method: 'DELETE'
     })
-        .then(() => getItems())
+        .then(() => GetAllItems())
         .catch(error => console.error('Unable to delete item.', error));
 }
 
@@ -170,8 +172,64 @@ function GetMapTemplate(thisHighlightMap) {
     return mapTemp;
 }
 
+function InsertBatch(animal) {
+    const uri = '/AnimalData/GetAllAnimalsFromClass/' + animal;
+
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => {
+            currentAnimalList = data;
+
+            DumpData(currentAnimalList);
+
+            //return;
+
+            batchArr = []; 
+            for (let i = 0; i < currentAnimalList.length; i++) {
+                //if (currentAnimalList[i].id > 6 && currentAnimalList[i].id < 11) {
+                    let tempItem = {}; 
+                    tempItem.species = currentAnimalList[i].species; 
+                    tempItem.name = currentAnimalList[i].name; 
+                    tempItem.location = currentAnimalList[i].location; 
+                    tempItem.details = currentAnimalList[i].details; 
+                    tempItem.imageUrl = currentAnimalList[i].imageUrl; 
+                    tempItem.type = currentAnimalList[i].type; 
+
+                    batchArr.push(tempItem);
+                //}
+            }
+            DumpData(batchArr);
+
+            //return;
+
+            let fullURI = '/api/animals/createbatch';
+
+            console.log(fullURI);
+
+            fetch(fullURI, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(batchArr)
+            })
+                .then(() => getAllItems())
+                .catch(error => console.error('Unable to add batch.', error));
+
+            return false;
+
+        })
+        .catch(error => console.error('Unable to get items.', error));
+}
+
 
 function _displayItems(data) {
+    console.log(data);
+
+    $("#DataDump").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
+}
+function DumpData(data) {
     console.log(data);
 
     $("#DataDump").html("<pre>" + JSON.stringify(data, null, 2) + "</pre>");

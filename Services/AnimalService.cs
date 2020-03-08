@@ -37,6 +37,11 @@ namespace Animals1.Services
             return animal;
         }
 
+        public void InsertBatch(List<Animal> animalList)
+        {
+            _animals.InsertManyAsync(animalList);
+        }
+
         public void Update(string id, Animal animalIn) =>
             _animals.ReplaceOne(animal => animal.Id == id, animalIn);
 
