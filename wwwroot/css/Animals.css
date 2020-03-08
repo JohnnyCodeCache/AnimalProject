@@ -296,6 +296,13 @@ button:focus {
     text-align: center;
 }
 
+#SearchGoButton {
+    border-radius: 50%;
+    border: 0;
+    background-color: #757575;
+    color: white;
+}
+
 
 /* 
 Extra small devices (portrait phones, less than 576px) 

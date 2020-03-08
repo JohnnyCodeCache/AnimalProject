@@ -27,7 +27,15 @@ namespace Animals1.Services
 
         public List<Animal> GetBySpecies(string species)
         {
-            var listOut = _animals.Find<Animal>(animal => animal.Species == species).ToList();
+            // THIS IS CASE SENSITIVE.  cats != Cats 
+            //var listOut = _animals.Find<Animal>(animal => animal.Species == species).ToList();
+
+            // THIS IS NOT CASE SENSITIVE
+            // but it is a Contains, so when species = 'ca' anything with 'ca' in its Species will be returned.
+            // works great now, but...
+            // TODO:  Rework this so it is a find to lower, and not a Contains
+            var listOut = _animals.AsQueryable().Where(animal => animal.Species.ToLower().Contains(species)).ToList(); 
+
             return listOut;
         }
 
@@ -50,6 +58,17 @@ namespace Animals1.Services
 
         public void Remove(string id) =>
             _animals.DeleteOne(animal => animal.Id == id);
+
+        public List<Animal> Search(string id)
+        {
+            var nameOut = _animals.AsQueryable().Where(animal => animal.Name.ToLower().Contains(id)).ToList();
+            var locationOut = _animals.AsQueryable().Where(animal => animal.Location.ToLower().Contains(id)).ToList();
+
+            var listOut = nameOut.Concat(locationOut).ToList();
+
+            return listOut;
+        }
+
     }
 }
 

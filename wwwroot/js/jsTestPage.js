@@ -223,6 +223,22 @@ function InsertBatch(animal) {
         .catch(error => console.error('Unable to get items.', error));
 }
 
+function GetBySpecies() {
+    let animal = $("#GetBySpeciesInput").val(); 
+
+    let uri = '/api/animals/getbyspecies/' + animal;
+
+    console.log(uri);
+
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => {
+            DumpData(data);
+        })
+        .catch(error => console.error('Unable to get items.', error));
+}
+
+
 
 function _displayItems(data) {
     console.log(data);

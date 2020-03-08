@@ -41,7 +41,7 @@ function CheckQuerystring() {
     let thisName = urlParams.get('name');
     if (thisName !== null) {
         if (thisName !== "") {
-            AnimalClicked(thisName);
+            LeftNavClicked(thisName);
         }
     }
 
@@ -53,11 +53,11 @@ function attachLeftNav() {
     $(".LeftNavButton").click(function () {
         //alert("Handler for .click() called.");
         let whichAnimal = $(this).data("animal");
-        AnimalClicked(whichAnimal);
+        LeftNavClicked(whichAnimal);
     });
 }
 
-function AnimalClicked(animal) {
+function LeftNavClicked(animal) {
     // update leftNavData
     LeftNav_Update_Data(animal, "selected", true);
 
@@ -68,6 +68,7 @@ function AnimalClicked(animal) {
     TopNavChange(item);
 
     setGetParam('name', animal); 
+    setGetParam('id', "");
 
     // get all animals of that species, populate Content
     AnimalContent_PopulateWithList(animal);
@@ -97,7 +98,10 @@ function TopNavChange(item) {
 
 
 function AnimalContent_PopulateWithList(animal) {
-    const uri = '/AnimalData/GetAllAnimalsFromClass/' + animal;
+    //const uri = '/AnimalData/GetAllAnimalsFromClass/' + animal;
+
+    // animal is no longer case sensitive for this URI
+    const uri = '/api/animals/getbyspecies/' + animal;
 
     fetch(uri)
         .then(response => response.json())
@@ -140,7 +144,7 @@ function AttachAnimalNameButtons() {
         let normalizedCountry = $(this).data("location");
         normalizedCountry = normalizedCountry.replace(/[^a-zA-Z]/gi, '');
 
-        console.log(normalizedCountry);
+        //console.log(normalizedCountry);
 
         if (normalizedCountry !== 'Extinct') {
             $("#HighlightMap").removeClass("hidden");
@@ -166,8 +170,10 @@ function AnimalContent__PopulateWithDetails(id) {
         return v.id === id;
     });
 
+    let normalizedLocation = animalData.location.replace(/[^a-zA-Z]/gi, '');
+
     // populate content top
-    let topContent = getHTML__ContentTop(animalData.name, animalData.location, animalData.location);
+    let topContent = getHTML__ContentTop(animalData.name, animalData.location, normalizedLocation);
     $("#AnimalContent__Top").html(topContent);
 
     //populate bottom
@@ -203,8 +209,52 @@ function GoBack() {
     var urlParams = new URLSearchParams(window.location.search);
     setGetParam('id', "");
 
-    AnimalClicked(urlParams.get('name'));
+    LeftNavClicked(urlParams.get('name'));
 }
+
+function Search() {
+    let thisSearch = $("#Search").val();
+
+    // animal is no longer case sensitive for this URI
+    const uri = '/api/animals/search/' + thisSearch;
+
+    fetch(uri)
+        .then(response => response.json())
+        .then(data => {
+            currentAnimalList = data;
+
+            //var urlParams = new URLSearchParams(window.location.search);
+            setGetParam('id', "");
+            setGetParam('name', "");
+            setGetParam('search', "thisSearch");
+
+            DrawAnimalList(data, "Search Results");
+
+        })
+        .catch(error => console.error('Unable to get items.', error));
+
+}
+
+function DrawAnimalList(data, contentTitle) {
+    // filter data
+    let allButtons = "<div id='AnimalNamesButtonBlock'>";
+    data.forEach((item) => {
+        allButtons += `<button id='${item.id}' class='AnimalNameButton --animalButton__${item.species}' data-location='${item.location}'>${item.name}<br><img src='/images/Icon_${item.species}.png' class="Icon__Small"><br>${item.location}</button>`;
+    });
+    allButtons += "</div>";
+
+    // populate top
+    let topContent = getHTML__ContentTop(contentTitle, "select a button below", "");
+    $("#AnimalContent__Top").html(topContent);
+
+
+    $("#AnimalContent__Bottom").html(allButtons);
+
+    // attach buttons for clicks and hovers
+    AttachAnimalNameButtons();
+}
+
+
 
 ////////////////////////////////
 //

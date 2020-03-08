@@ -36,6 +36,24 @@ namespace Animals1.Controllers
             return animal;
         }
 
+
+        [HttpGet("/api/animals/getbyspecies/{id}")]
+        public ActionResult<List<Animal>> GetBySpecies(string id)
+        {
+            // THIS IS no longer case sensitive 
+            var animalsOut = _animalService.GetBySpecies(id);
+            return animalsOut;
+        }
+
+        [HttpGet("/api/animals/search/{id}")]
+        public ActionResult<List<Animal>> Search(string id)
+        {
+            // THIS IS no longer case sensitive 
+            var animalsOut = _animalService.Search(id);
+            return animalsOut;
+        }
+
+
         [HttpPost]
         public ActionResult<Animal> Create(Animal animal)
         {
@@ -51,6 +69,7 @@ namespace Animals1.Controllers
 
             return NoContent();
         }
+
 
 
         [HttpPut("{id:length(24)}")]
